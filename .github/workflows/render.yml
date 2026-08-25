@@ -1,0 +1,97 @@
+name: Render FG banners
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: "Project ID (e.g. auto-lightbox) or all"
+        required: true
+        default: "all"
+        type: string
+
+  push:
+    paths:
+      - "render.py"
+      - "projects.json"
+      - "requirements.txt"
+      - "templates/**"
+      - "assets/**"
+
+concurrency:
+  group: fg-banner-render-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Install Chromium for Playwright
+        run: python -m playwright install --with-deps chromium
+
+      - name: Select project
+        id: selection
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PROJECT="${{ inputs.project_id }}"
+          else
+            PROJECT="all"
+          fi
+
+          PROJECT="$(echo "$PROJECT" | xargs)"
+
+          if [ -z "$PROJECT" ]; then
+            PROJECT="all"
+          fi
+
+          echo "project=$PROJECT" >> "$GITHUB_OUTPUT"
+          echo "Rendering: $PROJECT"
+
+      - name: Validate project ID
+        if: steps.selection.outputs.project != 'all'
+        shell: bash
+        run: |
+          PROJECT="${{ steps.selection.outputs.project }}"
+          python render.py list | awk '{print $1}' | grep -Fxq "$PROJECT" || {
+            echo "::error::Unknown project ID: $PROJECT"
+            echo "Available projects:"
+            python render.py list
+            exit 1
+          }
+
+      - name: Render banner(s)
+        shell: bash
+        run: python render.py "${{ steps.selection.outputs.project }}"
+
+      - name: Commit generated output
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add output/
+
+          if git diff --cached --quiet; then
+            echo "No banner changes to commit."
+            exit 0
+          fi
+
+          PROJECT="${{ steps.selection.outputs.project }}"
+          git commit -m "Render FG banner: ${PROJECT}"
+          git push

@@ -1,0 +1,137 @@
+{
+  "defaults": {
+    "width": 1600,
+    "height": 700,
+    "title_prefix": "FG",
+    "theme": "orange",
+    "palette": {
+      "background_top": "#082957",
+      "background_bottom": "#001A3A",
+      "text_primary": "#F7F9FF",
+      "text_secondary": "#B8C6DF",
+      "panel_fill": "#07396C",
+      "panel_border": "#7CC6FF",
+      "panel_glow": "#168FFF"
+    }
+  },
+  "themes": {
+    "orange": {
+      "palette": {
+        "accent": "#FF4B1F",
+        "accent_secondary": "#FF6B2B"
+      }
+    },
+    "green": {
+      "palette": {
+        "accent": "#31C46B",
+        "accent_secondary": "#55D982"
+      }
+    },
+    "blue": {
+      "palette": {
+        "accent": "#2FA8FF",
+        "accent_secondary": "#55BCFF"
+      }
+    }
+  },
+  "projects": [
+    {
+      "id": "email-remover",
+      "title": "Email Remover",
+      "subtitle": "Stop harvesters cold — emails never reach the page.",
+      "extension_type": "System plugin",
+      "logo": "assets/logos/email-remover.png",
+      "placeholder_logo": "@",
+      "theme": "orange",
+      "features": [
+        {
+          "icon": "shield",
+          "heading": "Remove or replace",
+          "description": "strip mailto: links & plain-text addresses site-wide"
+        },
+        {
+          "icon": "image",
+          "heading": "Text, HTML or image",
+          "description": "render addresses as generated PNGs — custom font supported"
+        },
+        {
+          "icon": "code",
+          "heading": "Attribute-safe",
+          "description": "never breaks markup, even inside meta tags or title attrs"
+        },
+        {
+          "icon": "puzzle",
+          "heading": "Two builds, one plugin",
+          "description": "classic Joomla 3.10 or native Joomla 4–6 — same update site"
+        }
+      ],
+      "output": "fg-email-remover.png"
+    },
+    {
+      "id": "strip-comments",
+      "title": "Strip Comments",
+      "subtitle": "Cleaner output. Smaller HTML. Zero hassle.",
+      "extension_type": "System plugin",
+      "logo": "assets/logos/strip-comments.png",
+      "placeholder_logo": "</>",
+      "theme": "green",
+      "features": [
+        {
+          "icon": "broom",
+          "heading": "Cleaner page output",
+          "description": "remove unnecessary HTML comments from rendered pages"
+        },
+        {
+          "icon": "code",
+          "heading": "Markup-aware",
+          "description": "preserve protected code while cleaning normal HTML output"
+        },
+        {
+          "icon": "bolt",
+          "heading": "Lightweight",
+          "description": "fast processing with minimal runtime overhead"
+        },
+        {
+          "icon": "check",
+          "heading": "Modern Joomla",
+          "description": "designed for current Joomla installations"
+        }
+      ],
+      "output": "fg-strip-comments.png"
+    },
+    {
+      "id": "auto-lightbox",
+      "title": "Auto Lightbox",
+      "subtitle": "Automatic lightbox behavior without editing article markup.",
+      "extension_type": "Content plugin",
+      "logo": "assets/logos/auto-lightbox.png",
+      "placeholder_logo": "◫",
+      "theme": "blue",
+      "features": [
+        {
+          "icon": "image",
+          "heading": "Automatic detection",
+          "description": "turn article images into lightbox links automatically"
+        },
+        {
+          "icon": "link",
+          "heading": "Existing links respected",
+          "description": "works with article markup instead of fighting it"
+        },
+        {
+          "icon": "code",
+          "heading": "Clean integration",
+          "description": "predictable output and maintainable generated HTML"
+        },
+        {
+          "icon": "check",
+          "heading": "Joomla-ready",
+          "description": "built for modern Joomla content workflows"
+        }
+      ],
+      "output": "fg-auto-lightbox.png",
+      "logo_mode": "full",
+      "logo_size": "100%"
+    }
+  ]
+}
