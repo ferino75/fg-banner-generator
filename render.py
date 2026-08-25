@@ -60,6 +60,13 @@ async def render_png(project):
         await browser.close()
     return out
 
+def write_icon_catalog():
+    manifest = json.loads((ROOT / "tabler-icons.json").read_text(encoding="utf-8"))
+    t = env.get_template("icon-catalog.html")
+    out = OUTPUT_DIR / "icons.html"
+    out.write_text(t.render(icon_names=manifest["icons"].keys()), encoding="utf-8")
+    return out
+
 def write_preview():
     t = env.get_template('preview.html')
     out = OUTPUT_DIR/'index.html'
@@ -76,6 +83,7 @@ async def render_selected(ids=None):
         out = await render_png(p)
         print(f"✓ {p['id']}: {out.relative_to(ROOT)}")
     print(f"✓ preview: {write_preview().relative_to(ROOT)}")
+    print(f"✓ icons: {write_icon_catalog().relative_to(ROOT)}")
 
 def main():
     ap = argparse.ArgumentParser(description='FG Banner Generator v3')

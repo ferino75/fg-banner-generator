@@ -122,3 +122,104 @@ Príklady:
 "logo_offset_x": 0,
 "logo_offset_y": 0
 ```
+
+
+## Tabler Icons – V3.2
+
+V3.2 štandardizuje feature ikonky na **Tabler Icons / Outline**. Tabler používa
+24×24 mriežku a 2px stroke, takže ikony sú vizuálne konzistentné naprieč bannermi.
+
+Kurátorovaná sada je definovaná v:
+
+```text
+tabler-icons.json
+```
+
+Aktuálne obsahuje viac než 30 praktických ikon, napr.:
+
+```text
+shield
+shield-check
+image
+photo
+code
+puzzle
+bolt
+broom
+link
+check
+database
+world
+lock
+settings
+language
+eye
+file
+files
+mail
+at
+user
+users
+search
+filter
+download
+upload
+refresh
+trash
+replace
+device-desktop
+browser
+server
+```
+
+### Synchronizácia ikon
+
+Pred prvým lokálnym renderom alebo po zmene `tabler-icons.json`:
+
+```bash
+python sync_icons.py
+```
+
+Alebo iba konkrétne ikonky:
+
+```bash
+python sync_icons.py database server lock
+```
+
+GitHub Actions ich synchronizuje automaticky pred renderovaním.
+
+### Použitie v projects.json
+
+```json
+{
+  "icon": "database",
+  "heading": "Database access",
+  "description": "..."
+}
+```
+
+Generátor následne vloží:
+
+```text
+templates/icons/database.svg
+```
+
+### Vlastná ikona
+
+Stále môžeš pridať aj vlastné SVG priamo do `templates/icons/`.
+Ak napríklad vytvoríš:
+
+```text
+templates/icons/my-special-icon.svg
+```
+
+v `projects.json` použiješ:
+
+```json
+"icon": "my-special-icon"
+```
+
+Odporúčané je držať vlastné ikony v rovnakom štýle: `viewBox="0 0 24 24"`,
+outline, `currentColor`, približne 2px stroke.
+
+Licenčné informácie pre Tabler sú v `THIRD_PARTY_LICENSES.md`.
