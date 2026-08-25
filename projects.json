@@ -105,7 +105,7 @@
       "output": "fg-strip-comments.png",
       "logo_mode": "full",
       "logo_size": "100%",
-      "logo_scale": 1.0,
+      "logo_scale": 1.08,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     },
@@ -142,7 +142,7 @@
       "output": "fg-auto-lightbox.png",
       "logo_mode": "full",
       "logo_size": "100%",
-      "logo_scale": 1.0,
+      "logo_scale": 1.20,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     }
