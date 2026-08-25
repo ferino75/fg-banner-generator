@@ -65,7 +65,9 @@
           "description": "classic Joomla 3.10 or native Joomla 4–6 — same update site"
         }
       ],
-      "output": "fg-email-remover.png"
+      "output": "fg-email-remover.png",
+      "logo_mode": "full",
+      "logo_size": "100%"
     },
     {
       "id": "strip-comments",
@@ -97,7 +99,9 @@
           "description": "designed for current Joomla installations"
         }
       ],
-      "output": "fg-strip-comments.png"
+      "output": "fg-strip-comments.png",
+      "logo_mode": "full",
+      "logo_size": "100%"
     },
     {
       "id": "auto-lightbox",
