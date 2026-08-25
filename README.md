@@ -85,3 +85,40 @@ Táto verzia je považovaná za základný master štýl pre ďalšie FG bannery
 - slogan
 - typ rozšírenia
 - zoznam hlavných vlastností
+
+
+## Logo tuning per project
+
+V3.1 podporuje tieto parametre v `projects.json`:
+
+```json
+"logo_mode": "contain",
+"logo_size": "90%",
+"logo_scale": 1.0,
+"logo_offset_x": 0,
+"logo_offset_y": 0
+```
+
+Význam:
+
+- `logo_mode` – `contain` alebo `full`
+- `logo_size` – základná šírka/výška loga v paneli, napr. `90%` alebo `100%`
+- `logo_scale` – jemné optické zväčšenie/zmenšenie, napr. `0.95`, `1`, `1.08`
+- `logo_offset_x` – horizontálny posun v px
+- `logo_offset_y` – vertikálny posun v px
+
+Príklady:
+
+```json
+"logo_mode": "contain",
+"logo_size": "90%",
+"logo_scale": 1.0
+```
+
+```json
+"logo_mode": "full",
+"logo_size": "100%",
+"logo_scale": 1.05,
+"logo_offset_x": 0,
+"logo_offset_y": 0
+```

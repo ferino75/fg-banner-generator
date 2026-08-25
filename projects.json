@@ -67,7 +67,8 @@
       ],
       "output": "fg-email-remover.png",
       "logo_mode": "contain",
-      "logo_scale": 0.50,
+      "logo_size": "90%",
+      "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     },
@@ -103,7 +104,10 @@
       ],
       "output": "fg-strip-comments.png",
       "logo_mode": "full",
-      "logo_size": "100%"
+      "logo_size": "100%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     },
     {
       "id": "auto-lightbox",
@@ -137,7 +141,10 @@
       ],
       "output": "fg-auto-lightbox.png",
       "logo_mode": "full",
-      "logo_size": "100%"
+      "logo_size": "100%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
   ]
 }
