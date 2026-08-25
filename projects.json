@@ -67,7 +67,9 @@
       ],
       "output": "fg-email-remover.png",
       "logo_mode": "contain",
-      "logo_size": "78%"
+      "logo_scale": 0.72,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     },
     {
       "id": "strip-comments",
