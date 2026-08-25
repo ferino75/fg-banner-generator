@@ -46,8 +46,6 @@ jobs:
       - name: Install Chromium for Playwright
         run: python -m playwright install --with-deps chromium
 
-      - name: Sync Tabler Icons
-        run: python sync_icons.py
 
       - name: Select project
         id: selection

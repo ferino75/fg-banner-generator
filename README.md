@@ -223,3 +223,34 @@ Odporúčané je držať vlastné ikony v rovnakom štýle: `viewBox="0 0 24 24"
 outline, `currentColor`, približne 2px stroke.
 
 Licenčné informácie pre Tabler sú v `THIRD_PARTY_LICENSES.md`.
+
+
+## V3.2.1 – lokálne uložené Tabler ikony
+
+Od V3.2.1 sa Tabler SVG ikony pri bežnom renderovaní **nesťahujú z internetu**.
+
+Ikony sú uložené priamo v:
+
+```text
+templates/icons/
+```
+
+a sú súčasťou Git repozitára. Preto je render:
+
+- rýchlejší,
+- deterministický,
+- nezávislý od dostupnosti Tabler/GitHub serverov,
+- vhodný aj pre offline lokálne renderovanie.
+
+`sync_icons.py` zostáva v repozitári iba ako servisný nástroj. Použi ho len vtedy,
+keď chceš aktualizovať existujúce Tabler ikony alebo pridať nové podľa
+`tabler-icons.json`.
+
+Príklad:
+
+```bash
+python sync_icons.py database server lock
+```
+
+Po synchronizácii nové/aktualizované SVG normálne commitni do Git repozitára.
+GitHub Actions ich potom pri renderi už iba použije a nič nesťahuje.

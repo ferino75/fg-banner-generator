@@ -1,8 +1,8 @@
 <!--
-tags: [brackets, source, programming, command, code, script, software, development, coding, typography]
+tags: [email, message, mention, sign, "@", at, typography, writing, font, character]
 category: Text
 version: "1.0"
-unicode: "ea77"
+unicode: "ea2b"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,6 @@ unicode: "ea77"
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M7 8l-4 4l4 4" />
-  <path d="M17 8l4 4l-4 4" />
-  <path d="M14 4l-4 16" />
+  <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+  <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
 </svg>
